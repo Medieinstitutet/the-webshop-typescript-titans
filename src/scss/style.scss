@@ -1,0 +1,14 @@
+@use "variables" as v;
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
