@@ -1,5 +1,19 @@
+@use "variables" as v;
+
 @mixin flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
 }
