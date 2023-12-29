@@ -1,4 +1,5 @@
 @use "variables" as v;
+@use "mixins";
 nav {
     height: 7vh;
     width: 100%;
@@ -45,6 +46,9 @@ h2 {
     color: white;
     font-size: 26px;
     right: 62px;
+    @include mixins.desktop {
+        right: 12px;
+    }
 }
 
 #nav-hamburger-icon {
@@ -53,6 +57,9 @@ h2 {
     font-size: 33px;
     right: 12px;
     padding-top: 7px;
+    @include mixins.desktop {
+        display: none;
+    }
 }
 .main {
     position: absolute;
