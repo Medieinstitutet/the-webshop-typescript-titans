@@ -1,5 +1,6 @@
 @use "variables" as v;
 @use "mixins";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
 
 footer {
   display: flex;
@@ -7,7 +8,7 @@ footer {
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: black;
+  background-color: v.$darkbackground-color;
   color: white;
 
   .footer--section {
@@ -17,17 +18,36 @@ footer {
     align-items: center;
     width: 95%;
     height: 90%;
-    background-color: black;
+
+    .socials-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .bi {
+        margin-right: 10px;
+      }
+
+      li {
+      }
+    }
 
     &__top {
       @include mixins.flexCenter;
-      border-bottom: 2px solid gray;
+      flex-direction: column;
+      border-bottom: 2px solid v.$text-light;
       width: 95%;
       height: 49%;
     }
 
     &__bottom {
       @include mixins.flexCenter;
+      flex-direction: column;
       width: 95%;
       height: 49%;
     }
