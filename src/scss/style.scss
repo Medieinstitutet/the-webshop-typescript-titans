@@ -1,15 +1,19 @@
-@use "variables" as v;
+@use "navbar";
 
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
+
 body {
-    margin: 0;
-    padding: 0;
-    background-color: v.$primary-color;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
