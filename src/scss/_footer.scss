@@ -1,6 +1,5 @@
 @use "variables" as v;
 @use "mixins";
-@import "mixins";
 
 footer {
   display: flex;
@@ -21,14 +20,14 @@ footer {
     background-color: black;
 
     &__top {
-      @include flexCenter;
+      @include mixins.flexCenter;
       border-bottom: 2px solid gray;
       width: 95%;
       height: 49%;
     }
 
     &__bottom {
-      @include flexCenter;
+      @include mixins.flexCenter;
       width: 95%;
       height: 49%;
     }
