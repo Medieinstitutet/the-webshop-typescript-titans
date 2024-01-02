@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
@@ -26,11 +27,6 @@
     <div class="main"></div>
     <div id="cartOverlay">
       <div id="cartModal">
-        <h2>Varukorg</h2>
-        <ul>
-          <!-- Visa produkter i varukorgen här -->
-        </ul>
-
         <span
           id="closeCartIcon"
           class="iconify"
@@ -38,6 +34,17 @@
           data-inline="false"
           onclick="toggleCartVisibility()"
         ></span>
+        <h2>Varukorg</h2>
+        <hr class="separator" />
+        <ul>
+          <!-- Visa produkter i varukorgen här -->
+        </ul>
+        <section class="free-shipping-section">
+          <p><i class="bi bi-truck"></i> Fri frakt tillgängligt!</p>
+        </section>
+        <div class="CheckoutBtn">
+          <button id="goToCheckoutBtn">Till kassan</button>
+        </div>
       </div>
     </div>
     <script type="module" src="/src/ts/main.ts"></script>

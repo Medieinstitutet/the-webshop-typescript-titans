@@ -4,13 +4,13 @@
   border: none;
   cursor: pointer;
   position: absolute;
-  bottom: 50px;
+  top: 40px;
   left: 90%;
   transform: translateX(-50%);
 }
 
 #cartOverlay {
-  /* display: none;*/
+  /*display: none;*/
   position: fixed;
   top: 0;
   left: 0;
@@ -56,7 +56,42 @@ ul {
   border: none;
   cursor: pointer;
   position: absolute;
-  bottom: 50px;
+  bottom: 70px;
   left: 90%;
   transform: translateX(-50%);
+}
+
+.CheckoutBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Hela höjden av vyporten (viewport) */
+}
+
+#goToCheckoutBtn {
+  background-color: #8e44ad;
+  color: #fff;
+  padding: 10px 10px; /* Inre fyllning för att ändra storlek */
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.separator {
+  margin: 20px 0;
+  border: 0; /* Ingen ram */
+  height: 4px; /* Höjden på linjen */
+  background-image: linear-gradient(
+    to right,
+    #161137,
+    #172139,
+    #8e44ad
+  ); /* Gradient med tre färger */
+}
+
+.free-shipping-section {
+  color: rgb(114, 244, 114);
+  text-align: center;
+  font-weight: 600;
 }
