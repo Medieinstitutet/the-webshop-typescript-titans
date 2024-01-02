@@ -37,6 +37,7 @@ nav {
     height: 50px;
     z-index: 4;
     background-color: v.$darkbackground-color;
+    align-items: center;
     ul {
         box-sizing: border-box;
         position: absolute;
@@ -58,7 +59,7 @@ nav {
         }
     }
     @include mixins.desktop {
-        display: inline;
+        display: flex;
     }
 }
 

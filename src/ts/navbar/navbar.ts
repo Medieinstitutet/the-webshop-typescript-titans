@@ -3,7 +3,7 @@ const nav: HTMLElement | null = document.querySelector('nav');
 const mobileSearchBarContainer: HTMLElement | null = document.querySelector('.mobile-searchbar-container');
 
 function handleResize() {
-  const isMobileView: boolean = window.innerWidth <= 1024; 
+  const isMobileView: boolean = window.innerWidth <= 1024;
 
   if (isMobileView) {
     if (mobileSearchBarContainer && inputGroup) {
@@ -15,7 +15,6 @@ function handleResize() {
     }
   }
 }
-
 handleResize();
-
 window.addEventListener('resize', handleResize);
+
