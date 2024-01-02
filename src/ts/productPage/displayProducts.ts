@@ -1,7 +1,7 @@
 import { productList } from "./productPage";
 
 export function displayProducts() {
-  const productsContainer = document.getElementById("product--page__container");
+  const productsContainer = document.getElementById("productsContainer");
 
   for (let i = 0; i < productList.length; i++) {
     const Title: HTMLHeadingElement = document.createElement("h3");
