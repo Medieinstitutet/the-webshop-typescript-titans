@@ -72,13 +72,16 @@ h2 {
 }
 
 .input-group {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
+    @include mixins.desktop {
+        display: flex;
+    }
 }
 
 .form-control {
@@ -112,6 +115,18 @@ h2 {
     font-size: 33px;
     right: 25px;
     padding-top: 7px;
+    @include mixins.desktop {
+        display: none;
+    }
+}
+
+.mobile-searchbar-container {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    background-color: v.$secondary-color;
+    z-index: 8;
     @include mixins.desktop {
         display: none;
     }
