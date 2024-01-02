@@ -24,6 +24,22 @@
     </nav>
     <div class="nav-line"></div>
     <div class="main"></div>
+    <div id="cartOverlay">
+      <div id="cartModal">
+        <h2>Varukorg</h2>
+        <ul>
+          <!-- Visa produkter i varukorgen här -->
+        </ul>
+
+        <span
+          id="closeCartIcon"
+          class="iconify"
+          data-icon="mdi:close"
+          data-inline="false"
+          onclick="toggleCartVisibility()"
+        ></span>
+      </div>
+    </div>
     <script type="module" src="/src/ts/main.ts"></script>
   </body>
 </html>
