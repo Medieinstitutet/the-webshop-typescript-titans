@@ -9,7 +9,11 @@ footer {
   height: 100vh;
   width: 100%;
   background-color: v.$darkbackground-color;
-  color: white;
+  color: v.$text-light;
+
+  @include mixins.tablet {
+    height: 50vh;
+  }
 
   .footer--section {
     display: flex;
@@ -18,15 +22,20 @@ footer {
     align-items: center;
     width: 95%;
     height: 90%;
+    flex-wrap: wrap;
+    @include mixins.desktop {
+      flex-direction: row;
+    }
 
-    .socials-list {
+    ul {
+      text-align: center;
       list-style: none;
       padding: 0;
       margin: 0;
 
       a {
         text-decoration: none;
-        color: white;
+        color: v.$text-light;
       }
 
       .bi {
@@ -34,22 +43,42 @@ footer {
       }
 
       li {
+        margin: 10px;
       }
     }
 
     &__top {
       @include mixins.flexCenter;
       flex-direction: column;
-      border-bottom: 2px solid v.$text-light;
+      border-bottom: 1px solid v.$text-light;
       width: 95%;
-      height: 49%;
+      height: 40%;
+      @include mixins.desktop {
+        width: 45%;
+        border: none;
+      }
     }
 
     &__bottom {
       @include mixins.flexCenter;
       flex-direction: column;
       width: 95%;
-      height: 49%;
+      height: 40%;
+
+      @include mixins.desktop {
+        width: 45%;
+      }
+    }
+
+    &__copyright {
+      @include mixins.flexCenter;
+      padding-top: 30px;
+      margin-top: 20px;
+      border-top: 1px solid v.$text-light;
+      font-size: 0.8em;
+      width: 100%;
+      justify-content: center;
+      gap: 10px;
     }
   }
 }
