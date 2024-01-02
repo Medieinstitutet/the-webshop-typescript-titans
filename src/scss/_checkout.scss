@@ -22,7 +22,7 @@
     0,
     0.5
   ); /* Bakgrundsfärg med en viss opacitet för suddighet/blurrighet */
-  z-index: 1; /* Sätt z-index för att lägga varukorgen över andra element */
+  z-index: 4; /* Sätt z-index för att lägga varukorgen över andra element */
 }
 
 #cartModal {
