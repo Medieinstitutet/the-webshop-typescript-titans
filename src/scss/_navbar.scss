@@ -8,7 +8,7 @@ nav {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 0;
 }
@@ -69,6 +69,31 @@ h2 {
     font-family: "Rubik Mono One", monospace;
     margin: 0;
     padding-top: 5px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form-control {
+    border: none;
+    border-radius: 6px;
+    height: 35px;
+    padding: 8px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    width: 500px;
+}
+
+#nav-search-icon {
+    cursor: pointer;
 }
 
 #nav-bag-icon {
