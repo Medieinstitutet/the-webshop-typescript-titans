@@ -36,6 +36,10 @@ footer {
       a {
         text-decoration: none;
         color: v.$text-light;
+
+        :hover {
+          text-decoration: underline;
+        }
       }
 
       .bi {
