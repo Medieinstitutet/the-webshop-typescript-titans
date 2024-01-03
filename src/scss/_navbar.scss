@@ -76,6 +76,7 @@ nav {
                 font-size: 18px;
                 &:hover {
                     color: v.$text-light;
+                    text-decoration: underline v.$text-light solid 2px;
                 }
             }
         }
@@ -103,6 +104,7 @@ h2 {
     border: solid 1px #b2b2b2;
     border-radius: 10px;
     padding: 10px;
+    margin-top: 3px;
     width: 95%;
     height: 60%;
 
@@ -150,6 +152,7 @@ h2 {
 
 #nav-hamburger-icon {
     cursor: pointer;
+    display: block;
     position: absolute;
     color: white;
     font-size: 33px;
@@ -158,17 +161,30 @@ h2 {
     @include mixins.desktop {
         display: none;
     }
+    &.hide-icon {
+        display: none;
+    }
+    .show-icon {
+        display: block;
+    }
 }
 
 #nav-x-icon {
     cursor: pointer;
     position: absolute;
     color: white;
-    font-size: 33px;
-    right: 25px;
+    font-size: 28px;
+    right: 27.5px;
     padding-top: 7px;
+    z-index: 10;
     @include mixins.desktop {
         display: none;
+    }
+    &.hide-icon {
+        display: none;
+    }
+    .show-icon {
+        display: block;
     }
 }
 
@@ -186,9 +202,11 @@ h2 {
         display: none;
     }
     &.moved-up {
-        margin-top: 0; /* Adjust the value based on your layout */
+        margin-top: 0;
     }
     &.moved-down {
-        margin-top: 395px; /* Adjust the value based on your layout */
+        margin-top: 395px;
     }
 }
+
+// You might already have media queries set up, but if not, add them
