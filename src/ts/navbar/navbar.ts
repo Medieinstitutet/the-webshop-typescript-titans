@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const nav = document.querySelector('nav') as HTMLElement;
     const hamburgerIcon = document.getElementById('nav-hamburger-icon') as HTMLElement;
     const xIcon = document.getElementById('nav-x-icon') as HTMLElement;
-    let isNavListVisible: boolean = false;
+    let NavListVisible: boolean = false;
     let isMobileView: boolean = window.innerWidth <= 1024;
 
 
 
     const updateNavListVisibility = (): void => {
-      navList.classList.toggle('visible', isNavListVisible && isMobileView);
-      navList.classList.toggle('hidden', !isNavListVisible || !isMobileView);
+      navList.classList.toggle('visible', NavListVisible && isMobileView);
+      navList.classList.toggle('hidden', !NavListVisible || !isMobileView);
 
       updateMobileSearchBarPosition();
       updateIcons();
@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateMobileSearchBarPosition = (): void => {
       if (isMobileView) {
-        mobileSearchBarContainer.classList.toggle('moved-down', isNavListVisible);
-        mobileSearchBarContainer.classList.toggle('moved-up', !isNavListVisible);
+        mobileSearchBarContainer.classList.toggle('moved-down', NavListVisible);
+        mobileSearchBarContainer.classList.toggle('moved-up', !NavListVisible);
       } else {
         mobileSearchBarContainer.classList.remove('moved-down', 'moved-up');
       }
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateIcons = (): void => {
         if (isMobileView) {
-            if (isNavListVisible) {
+            if (NavListVisible) {
                 hamburgerIcon.classList.add('hide-icon');
                 hamburgerIcon.classList.remove('show-icon');
                 xIcon.classList.add('show-icon');
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const toggleNavList = (): void => {
-      isNavListVisible = !isNavListVisible;
+      NavListVisible = !NavListVisible;
       updateNavListVisibility();
     };
 
