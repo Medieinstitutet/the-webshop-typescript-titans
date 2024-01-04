@@ -18,5 +18,5 @@ closeCartIcon.addEventListener('click', function() {
 
 goToPayment.addEventListener('click', function() {
    
-    window.location.href = 'payment.html';
+    window.location.href = 'order.html';
 })
