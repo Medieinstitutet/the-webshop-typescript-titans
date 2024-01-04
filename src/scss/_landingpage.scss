@@ -1,0 +1,10 @@
+@use "variables" as v;
+@use "mixins";
+
+.landingpage-container {
+    width: 100%;
+    height: calc(100vh - 196px);
+    @include mixins.desktop {
+        height: calc(100vh - 171px);
+    }
+}
