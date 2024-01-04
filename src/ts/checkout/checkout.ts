@@ -17,6 +17,6 @@ closeCartIcon.addEventListener('click', function() {
 
 
 goToPayment.addEventListener('click', function() {
-    // Byt ut "ny-sida.html" med den faktiska sidan du vill navigera till.
+   
     window.location.href = 'payment.html';
 })
