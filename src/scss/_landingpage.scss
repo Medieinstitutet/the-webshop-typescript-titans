@@ -2,6 +2,7 @@
 @use "mixins";
 
 .landingpage-container {
+    position: absolute;
     top: 191px;
     width: 100%;
     height: calc(100vh - 196px);
