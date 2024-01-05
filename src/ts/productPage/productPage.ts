@@ -1,3 +1,4 @@
+import { Games } from "../../models/Games";
 import { Product } from "../../models/Product";
 
 const testProduct1: Product = new Product(
@@ -23,3 +24,9 @@ export let productList = [
   testProduct3,
   testProduct4,
 ];
+
+// getAllGames().then((games) => {
+//   games.forEach((game: Games) => {
+//     console.log(game.name);
+//   });
+// });
