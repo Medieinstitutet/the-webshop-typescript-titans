@@ -14,6 +14,7 @@ getAllGames().then((games) => {
 
   for (let i = 0; i < games.length; i++) {
     const game = games[i];
+    console.log(game);
 
     if (categoryFilter === "all" || game.genres[0].name === categoryFilter) {
       const productCard: HTMLDivElement = document.createElement("div");
@@ -21,9 +22,17 @@ getAllGames().then((games) => {
       const Genre1: HTMLSpanElement = document.createElement("span");
       const Genre2: HTMLSpanElement = document.createElement("span");
 
-      Title.innerHTML = game.name;
-      Genre1.innerHTML = game.genres[0].name;
-      Genre2.innerHTML = game.genres[1].name;
+      Title.textContent = game.name;
+
+      if (typeof game.genres === "object") {
+        if (game.genres[0] && game.genres[0].name) {
+          Genre1.innerHTML = game.genres[0].name;
+        }
+
+        if (game.genres[1] && game.genres[1].name) {
+          Genre2.innerHTML = game.genres[1].name;
+        }
+      }
 
       productCard.appendChild(Title);
       productCard.appendChild(Genre1);
@@ -33,10 +42,10 @@ getAllGames().then((games) => {
   }
 });
 
-// Kopplar knapparna med categorydata som är satt i HTML.
+// Kopplar knapparna med genre-data som är satt i HTML.
 document.querySelectorAll(".filter-button").forEach((button) => {
   button.addEventListener("click", function (this: HTMLElement) {
-    categoryFilter = this.getAttribute("category-data") || "all";
+    categoryFilter = this.getAttribute("genre-data") || "all";
     displayProducts();
   });
 });
