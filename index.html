@@ -24,8 +24,29 @@
     </nav>
     <div class="nav-line"></div>
     <div class="main"></div>
+
+
+    <div class="delivery-section">
+      <h2>Leveranssätt</h2>
+      <form>
+        <input 
+        type="radio"
+        id="delivery-home"
+        name="delivery-options"
+        >
+        <label for="delivery-home">Hemleverans (Leverans 1-3 arbetsdagar)</label>
+        <input 
+        type="radio"
+        id="delivery-store"
+        name="delivery-options"
+        >
+        <label for="delivery-store">Hämta hos postombud (Leverans 1-3 arbetsdagar)</label>
+      </form>
+    </div>
+
+
     <div id="payment-section">
-      <h2>Betalning</h2>
+      <h2>Kundinformation</h2>
       <form onsubmit="return validateForm()">
         <label for="card-holder-name">Kortinnehavarens namn:</label>
         <input
@@ -51,6 +72,7 @@
         <button id="goToCheckoutBtn">Betala</button>
       </form>
     </div>
+
     
     <script type="module" src="/src/ts/main.ts"></script>
   </body>
