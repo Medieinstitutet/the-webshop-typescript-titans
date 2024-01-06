@@ -1,12 +1,4 @@
-$primary-color: #172139;
-$secondary-color: #161137;
-$text-light: #93aafc;
-$text-dark: #2f58cd;
-$text-ultralight: #ffffff;
-$text-placeholder: #868686;
-
-$tablet: 768px;
-$desktop: 1024px;
+@import "variables";
 
 #closeCartIcon {
   color: black;
@@ -38,12 +30,11 @@ $desktop: 1024px;
     rgba(255, 255, 255, 0.9)
   );
   max-width: 55%;
-  margin: 6% auto;
+  margin: 8% auto;
   padding: 100px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   position: relative;
-  display: flex;
   transition: all 0.3s;
 }
 
@@ -87,7 +78,6 @@ ul {
 
 .checkout-container {
   display: flex;
-  /* flex-wrap: wrap; /* Tillåt omslag vid små skärmar */
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -95,7 +85,7 @@ ul {
 
 #checkout-section {
   height: 465px;
-  width: calc(50% - 20px); /* 50% bredd med utrymme mellan elementen */
+  width: calc(50% - 20px);
   padding: 50px;
   border-radius: 10%;
   color: $secondary-color;
@@ -107,6 +97,7 @@ ul {
   align-items: center;
 }
 
+/*Knappen som går till betalningen */
 #goToPayment {
   background-color: $primary-color;
   color: $text-ultralight;
@@ -115,8 +106,24 @@ ul {
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
+  transition: all 0.3s;
+}
+#goToPayment:hover {
+  transform: scale(1.06);
 }
 
+/* spel-Ikonen i varukorgen */
 .iconify {
   font-size: 30px;
+}
+
+#cart-count {
+  background: linear-gradient(to right, purple, $text-light);
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
