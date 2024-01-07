@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
     <title>Sell it or buy it?</title>
   </head>
@@ -26,6 +27,13 @@
     <div class="main"></div>
     <div id="payment-section">
       <h2>Betalning</h2>
+      <span
+        id="closeCartIcon"
+        class="iconify"
+        data-icon="mdi:close"
+        data-inline="false"
+        onclick="closeConfirmation()"
+      ></span>
       <form onsubmit="return validateForm()">
         <label for="card-holder-name">Kortinnehavarens namn:</label>
         <input
@@ -34,24 +42,16 @@
           placeholder="Förnamn Efternamn"
         />
         <label for="adress">Adress:</label>
-        <input type="text" id="expiry-date" placeholder="Adress" 
-        />
+        <input type="text" id="address" placeholder="Adress" />
         <label for="card-number">Kortnummer:</label>
-        <input
-          type="text"
-          id="card-number"
-          placeholder="1234 5678 9012 3456"
-        />
+        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" />
         <label for="expiry-date">Utgångsdatum:</label>
-        <input type="text" id="expiry-date" placeholder="MM/YY" 
-        />
+        <input type="text" id="expiry-date" placeholder="MM/YY" />
         <label for="cvv">CVV:</label>
-        <input type="text" id="cvv" placeholder="123" 
-        />
+        <input type="text" id="cvv" placeholder="123" />
         <button id="goToCheckoutBtn">Betala</button>
       </form>
     </div>
-    
     <script type="module" src="/src/ts/main.ts"></script>
   </body>
 </html>

@@ -12,5 +12,6 @@ function validateForm() {
     return true;
   }
  
-  // Knyt funktionen till ett fält på fönstret så att den kan nås globalt
-  (window as any).validateForm = validateForm;
+  
+
+  
