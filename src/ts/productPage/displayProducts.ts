@@ -1,7 +1,5 @@
 import { getAllGames } from "./gameApi";
 
-let categoryFilter: string | null = "all";
-
 export function displayProducts() {
   const productsContainer = document.getElementById("productsContainer");
 
@@ -16,38 +14,28 @@ getAllGames().then((games) => {
     const game = games[i];
     console.log(game);
 
-    if (categoryFilter === "all" || game.genres[0].name === categoryFilter) {
-      const productCard: HTMLDivElement = document.createElement("div");
-      const Title: HTMLHeadingElement = document.createElement("h3");
-      const Genre1: HTMLSpanElement = document.createElement("span");
-      const Genre2: HTMLSpanElement = document.createElement("span");
+    const productCard: HTMLDivElement = document.createElement("div");
+    const Title: HTMLHeadingElement = document.createElement("h3");
+    const Genre1: HTMLSpanElement = document.createElement("span");
+    const Genre2: HTMLSpanElement = document.createElement("span");
 
-      Title.textContent = game.name;
+    Title.textContent = game.name;
 
-      if (typeof game.genres === "object") {
-        if (game.genres[0] && game.genres[0].name) {
-          Genre1.innerHTML = game.genres[0].name;
-        }
-
-        if (game.genres[1] && game.genres[1].name) {
-          Genre2.innerHTML = game.genres[1].name;
-        }
+    if (typeof game.genres === "object") {
+      if (game.genres[0] && game.genres[0].name) {
+        Genre1.innerHTML = game.genres[0].name;
       }
 
-      productCard.appendChild(Title);
-      productCard.appendChild(Genre1);
-      productCard.appendChild(Genre2);
-      productsContainer?.appendChild(productCard);
+      if (game.genres[1] && game.genres[1].name) {
+        Genre2.innerHTML = game.genres[1].name;
+      }
     }
-  }
-});
 
-// Kopplar knapparna med genre-data som är satt i HTML.
-document.querySelectorAll(".filter-button").forEach((button) => {
-  button.addEventListener("click", function (this: HTMLElement) {
-    categoryFilter = this.getAttribute("genre-data") || "all";
-    displayProducts();
-  });
+    productCard.appendChild(Title);
+    productCard.appendChild(Genre1);
+    productCard.appendChild(Genre2);
+    productsContainer?.appendChild(productCard);
+  }
 });
 
 // Visar alla produkter från början.

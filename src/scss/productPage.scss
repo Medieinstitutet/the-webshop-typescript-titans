@@ -4,13 +4,14 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
   height: 100vh;
   width: 100%;
   background-color: v.$primary-color;
 
   &__filter-container {
-    height: 90%;
-    width: 20%;
+    height: 10%;
+    width: 90%;
     background-color: v.$secondary-color;
   }
   &__products-container {

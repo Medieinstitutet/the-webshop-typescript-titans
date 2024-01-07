@@ -1,6 +1,7 @@
 export interface Games {
   id: number;
   name: string;
+  background_image: string;
   genres: {
     0: {
       name: string;
