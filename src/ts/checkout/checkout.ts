@@ -4,7 +4,7 @@ const closeCartIcon = document.getElementById('closeCartIcon') as HTMLElement;
 const goToPayment = document.getElementById('goToPayment') as HTMLElement;
 
 
-
+//klickbara ikoner
 navBagIcon.addEventListener('click', function() {
     checkout.style.display = 'flex';
 });
@@ -20,6 +20,9 @@ goToPayment.addEventListener('click', function() {
    
     window.location.href = 'order.html';
 })
+
+
+
 
 
 // Antal i varukorgen
