@@ -4,6 +4,7 @@ const closeCartIcon = document.getElementById('closeCartIcon') as HTMLElement;
 const goToPayment = document.getElementById('goToPayment') as HTMLElement;
 
 
+
 //klickbara ikoner
 navBagIcon.addEventListener('click', function() {
     checkout.style.display = 'flex';
@@ -23,7 +24,7 @@ goToPayment.addEventListener('click', function() {
 
 
 
-
+//Ikonen uppdateras med en siffra efter man lagt i produkter
 
 // Antal i varukorgen
 let cartCount: number = 0;

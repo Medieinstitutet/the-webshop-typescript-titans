@@ -45,7 +45,8 @@
 
 #cartModal h2 {
   text-align: center;
-  margin-top: -150%;
+  margin-top: -60%;
+  position: absolute;
 }
 
 ul {
@@ -102,11 +103,12 @@ ul {
   background-color: $primary-color;
   color: $text-ultralight;
   padding: 10px 15px;
-  border: $text-ultralight;
+  border: 1px solid white;
   border-radius: 4px;
   cursor: pointer;
   position: absolute;
   transition: all 0.3s;
+  margin-top: 20%;
 }
 #goToPayment:hover {
   transform: scale(1.06);
