@@ -4,11 +4,11 @@ function validateForm() {
    
  
     if (x === "") {
-      alert("Kortinnehavarens uppgifter måste fyllas i");
+      console.log("Kortinnehavarens uppgifter måste fyllas i");
       return false;
     }
  
- 
+    
     return true;
   }
  
