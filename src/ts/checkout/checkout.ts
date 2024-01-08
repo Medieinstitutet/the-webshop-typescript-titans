@@ -15,7 +15,8 @@ closeCartIcon.addEventListener('click', function() {
 });
 
 
-//Funktion som gör att man skickat vidare till betalningen
+//Funktion som gör att man skickat vidare till betalningen men just nu går det till orderbekräftelse sidan, 
+// även denna funktion behövs i payment branchen
 
 goToPayment.addEventListener('click', function() {
    
@@ -24,7 +25,7 @@ goToPayment.addEventListener('click', function() {
 
 
 
-//Ikonen uppdateras med en siffra efter man lagt i produkter
+//Ikonen uppdateras med en siffra efter man lagt i produkter (vet ej om den funkar då jag ej har några produkter att lägga i )
 
 // Antal i varukorgen
 let cartCount: number = 0;
