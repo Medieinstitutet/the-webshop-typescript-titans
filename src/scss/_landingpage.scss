@@ -1,0 +1,136 @@
+@use "variables" as v;
+@use "mixins";
+
+.landingpage-container {
+    position: absolute;
+    top: 191px;
+    width: 100%;
+    height: calc(100vh - 196px);
+
+    @include mixins.desktop {
+        height: calc(100vh - 171px);
+        top: 166px;
+    }
+}
+
+.landingpage-heroimage {
+    background: url(/src/assets/ndikvQiVFSS6hSNc2nqUfF.jpg) no-repeat center;
+    background-size: cover;
+    height: 50%;
+
+    .landingpage-textcard1 {
+        width: 50%;
+        height: 150px;
+        background-color: v.$secondary-color;
+        position: absolute;
+        top: 0;
+        right: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 73%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: right;
+        transition:
+            height,
+            width 0.5s ease-in-out;
+
+        @include mixins.desktop {
+            width: 400px;
+            height: 150px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%);
+        }
+        .textcard1-shapedtext {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            display: block;
+            font-family: "Rubik Mono One", monospace;
+            color: v.$text-light;
+            font-size: 22px;
+            top: 20px;
+            right: 40px;
+
+            @include mixins.desktop {
+                font-size: 25px;
+                right: 70px;
+            }
+        }
+    }
+}
+
+.landingpage-heroimage2 {
+    background: url(/src/assets/dead-by-daylight-killers-uhdpaper.com-4K-6.562.jpg) no-repeat center;
+    background-size: cover;
+    height: 50%;
+
+    .landingpage-textcard2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: v.$secondary-color;
+        width: 80%;
+        height: 190px;
+        clip-path: polygon(0 0, 75% 30%, 100% 100%, 0 100%);
+        text-align: left;
+        transition:
+            height,
+            width 0.5s ease-in-out;
+
+        @include mixins.desktop {
+            width: 500px;
+        }
+        .textcard2-shapedtext {
+            position: absolute;
+            width: 73%;
+            height: 100px;
+            display: block;
+            font-family: "Rubik Mono One", monospace;
+            color: v.$text-dark;
+            font-size: 24px;
+            bottom: 30px;
+            left: 20px;
+            &:hover {
+                cursor: pointer;
+                color: v.$text-dark;
+                text-decoration: underline v.$text-light solid 2px;
+            }
+
+            @include mixins.desktop {
+                bottom: 0;
+            }
+        }
+    }
+}
+
+#landingpage-container-arrow {
+    position: absolute;
+    bottom: 10px;
+    left: 49.5%;
+    font-size: 28px;
+    font-weight: bolder;
+    color: white;
+    mix-blend-mode: difference;
+    &:hover {
+        cursor: pointer;
+    }
+    @include mixins.desktop {
+        font-size: 34px;
+        color: white;
+        mix-blend-mode: luminosity;
+    }
+}
+
+.landingpage-line {
+    height: 5px;
+    width: 100%;
+    background-color: #4e31aa;
+    z-index: 12;
+    position: absolute;
+    bottom: 0;
+}
