@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -11,10 +12,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
 
     />
-
     <title>Sell it or buy it?</title>
   </head>
   <body>
+
   <div class="landingpage-wrapper"><nav>
     <image
       class="nav-logo"
@@ -185,6 +186,45 @@
       </div>
     </div>
   
+    <nav>
+      <image
+        class="nav-logo"
+        src="src/assets/stair-group.svg"
+        alt="tv-spel.se logo"
+      ></image>
+      <h2 class="logo-title">TV-SPEL.SE</h2>
+      <i id="nav-bag-icon" class="bi bi-bag">
+        <span id="cart-count">0</span>
+      </i>
+      <i id="nav-hamburger-icon" class="bi bi-list"></i>
+    </nav>
+    <div class="nav-line"></div>
+    <div class="main"></div>
+    <!--varukorgen-->
+    <div id="checkout">
+      <div id="cartModal" class="checkout-container">
+        <div id="checkout-section">
+          <h2>Shopping Cart <span class="iconify" data-icon="icon-park-outline:game-three" data-inline="false"></span>
+          </h2>
+          <span
+            id="closeCartIcon"
+            class="iconify"
+            data-icon="mdi:close"
+            data-inline="false"
+            onclick="toggleCartVisibility()"
+          ></span>       
+          
+           <section class="free-shipping-section">
+            <p><i class="bi bi-truck"></i> Free Shipping Available!</p>
+          </section>
+        </div>
+        <button id="goToPayment">Continue to Payment</button>         
+      </div>
+      </div>
+    </div>
+
     <script type="module" src="/src/ts/main.ts"></script>
+    <script type="module" src="/src/ts/checkout/checkout.ts"></script>
+    <script type="module" src="/src/ts/checkout/shopping-cart.ts"></script>
   </body>
 </html>

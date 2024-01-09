@@ -1,3 +1,4 @@
+
 import "./../scss/style.scss";
 import "./navbar/navbar";
 
@@ -7,4 +8,7 @@ import "./productPage/productPage";
 
 displayProducts();
 // displayFilter();
+
+
+import "./../scss/style.scss";
 
