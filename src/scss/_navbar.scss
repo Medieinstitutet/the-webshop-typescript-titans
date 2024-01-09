@@ -1,63 +1,256 @@
 @use "variables" as v;
+
+@use "mixins";
+
+.landingpage-wrapper {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    z-index: 3;
+}
 nav {
-  height: 7vh;
-  width: 100%;
-  background-color: v.$primary-color;
-  z-index: 1;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0;
+    height: 116px;
+    width: 100%;
+    background-color: v.$primary-color;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0;
 }
 
 .nav-line {
-  height: 5px;
-  width: 100%;
-  background-color: #4e31aa;
-  z-index: 10;
-  position: absolute;
-  float: left;
+    height: 5px;
+    width: 100%;
+    background-color: #4e31aa;
+    z-index: 12;
+    position: absolute;
+    float: left;
 }
 
 .nav-logo {
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  left: 0;
+    z-index: 2;
+    width: 100px;
+    position: absolute;
+    left: -10px;
+    top: -5px;
 }
 
-h2 {
-  position: absolute;
-  color: v.$text-light;
-  float: left;
-  font-size: 24px;
-  left: 45px;
-  font-weight: 1000;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding-top: 5px;
+.nav-list {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    background-color: v.$darkbackground-color;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+    &.visible {
+        height: 400px;
+    }
+    &.hidden {
+        height: 0;
+    }
+
+    @include mixins.desktop {
+        height: 50px !important;
+        justify-content: flex-start;
+        display: flex;
+        transition: 0s;
+        padding-top: 14px;
+    }
+    ul {
+        box-sizing: border-box;
+        padding: 0;
+        position: absolute;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+        align-items: center;
+        justify-content: center;
+        @include mixins.desktop {
+            padding-left: 45px;
+            flex-direction: row;
+        }
+        li {
+            a {
+                color: v.$text-ultralight;
+                text-decoration: none;
+                font-family: "Rubik Mono One", monospace;
+                font-size: 18px;
+                &:hover {
+                    color: v.$text-light;
+                    text-decoration: underline v.$text-light solid 2px;
+                }
+            }
+        }
+    }
+}
+
+.name-logo {
+    position: absolute;
+    color: v.$text-light;
+    float: left;
+    font-size: 24px;
+    left: 45px;
+    font-weight: 1000;
+    font-family: "Rubik Mono One", monospace;
+    margin: 0;
+    padding-top: 5px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    border: solid 1px #b2b2b2;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 3px;
+    width: 95%;
+    height: 60%;
+
+    @include mixins.desktop {
+        display: flex;
+        width: 40%;
+        height: 55px;
+    }
+}
+
+.form-control {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    border-radius: 6px;
+    height: 10px;
+    padding: 8px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    width: 80%;
+    @include mixins.desktop {
+        display: flex;
+        width: 36%;
+    }
+}
+
+#nav-search-icon {
+    cursor: pointer;
+    margin-left: auto;
 }
 
 #nav-bag-icon {
-  position: absolute;
-  color: white;
-  font-size: 26px;
-  right: 62px;
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    font-size: 26px;
+    right: 75px;
+    @include mixins.desktop {
+        right: 45px;
+    }
 }
 
 #nav-hamburger-icon {
-  position: absolute;
-  color: white;
-  font-size: 33px;
-  right: 12px;
-  padding-top: 7px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    color: white;
+    font-size: 33px;
+    right: 25px;
+    padding-top: 7px;
+    @include mixins.desktop {
+        display: none;
+    }
+    &.hide-icon {
+        display: none;
+    }
+    .show-icon {
+        display: block;
+    }
 }
-.main {
-  position: absolute;
-  height: 93vh;
-  width: 100%;
-  background-color: white;
-  z-index: 3;
+.logo-title {
+    position: absolute;
+    color: v.$text-light;
+    float: left;
+    font-size: 24px;
+    left: 45px;
+    font-weight: 1000;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding-top: 5px;
+}
+
+#nav-bag-icon {
+    position: absolute;
+    color: white;
+    font-size: 26px;
+    right: 62px;
+    cursor: pointer;
+}
+
+#nav-hamburger-icon {
+    position: absolute;
+    color: white;
+    font-size: 33px;
+    right: 12px;
+    padding-top: 7px;
+    cursor: pointer;
+}
+
+#nav-x-icon {
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    font-size: 28px;
+    right: 27.5px;
+    padding-top: 7px;
+    z-index: 10;
+    @include mixins.desktop {
+        display: none;
+    }
+    &.hide-icon {
+        display: none;
+    }
+    .show-icon {
+        display: block;
+    }
+}
+
+.mobile-searchbar-container {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 75px;
+    background-color: v.$secondary-color;
+    z-index: 10;
+    transition: margin-top 0.3s ease-in-out;
+    @include mixins.desktop {
+        display: none;
+    }
+    &.moved-up {
+        margin-top: 0;
+    }
+    &.moved-down {
+        margin-top: 395px;
+    }
+}
+
+.nav-line {
+    height: 5px;
+    width: 100%;
+    background-color: #4e31aa;
+    z-index: 10;
+    position: absolute;
+    float: left;
 }

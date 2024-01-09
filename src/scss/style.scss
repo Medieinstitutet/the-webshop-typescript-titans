@@ -1,6 +1,12 @@
-//@use "navbar";
+@use "navbar";
+@use "footer";
+@use "productPage";
+@use "landingpage";
 @use "payment";
 
+@use "checkout";
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
 *,
 *::after,
 *::before {
@@ -15,6 +21,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
