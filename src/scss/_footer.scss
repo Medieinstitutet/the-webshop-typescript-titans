@@ -1,3 +1,6 @@
+@use "variables" as v;
+@use "mixins";
+
 footer {
   display: flex;
   justify-content: center;
@@ -7,7 +10,7 @@ footer {
   background-color: v.$darkbackground-color;
   color: v.$text-light;
 
-  @include mixins.tablet {
+  @include mixins.desktop {
     height: 50vh;
   }
 
