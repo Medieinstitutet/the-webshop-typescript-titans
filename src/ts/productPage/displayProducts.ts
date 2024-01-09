@@ -6,10 +6,15 @@ export async function displayProducts() {
   // Clear existing content
   productsContainer!.innerHTML = "";
 
+  let testArray;
+  [] = [];
+
   try {
     const gamesWithPrices = await addRandomPrices();
 
-    gamesWithPrices.forEach((game) => {
+    for (let i = 0; i < gamesWithPrices.length; i++) {
+      const game = gamesWithPrices[i];
+
       const productCard: HTMLDivElement = document.createElement("div");
       const productTop: HTMLDivElement = document.createElement("div");
       const Title: HTMLHeadingElement = document.createElement("h3");
@@ -18,8 +23,14 @@ export async function displayProducts() {
       const Price: HTMLParagraphElement = document.createElement("p");
       const addToCartBtn: HTMLButtonElement = document.createElement("button");
 
+      addToCartBtn.addEventListener("click", (game) => {
+        testArray.push(game);
+      });
+
       Title.textContent = game.name;
       Price.textContent = `$${game.price}`;
+      Genre1.textContent = game.genres[0].name;
+      Genre2.textContent = game.genres[1].name;
       addToCartBtn.textContent = "Add To Cart";
 
       Price.classList.add("price-style");
@@ -37,7 +48,7 @@ export async function displayProducts() {
       productsContainer?.appendChild(productCard);
 
       console.log(game);
-    });
+    }
   } catch (error) {
     console.error("Failed to display products:", error);
   }
