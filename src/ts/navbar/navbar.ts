@@ -1,3 +1,4 @@
+import { displayProducts } from '../productPage/displayProducts';
 document.addEventListener("DOMContentLoaded", () => {
     
    
@@ -9,9 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const xIcon = document.getElementById('nav-x-icon') as HTMLElement;
     let NavListVisible: boolean = false;
     let isMobileView: boolean = window.innerWidth <= 1024;
+    const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+    const searchIcon = document.getElementById('nav-search-icon') as HTMLElement;
+    
+    const handleSearch = () => {
+        const searchTerm = searchInput.value;
+        displayProducts(searchTerm);
+    };
 
-
-
+    const scrollToProductSection = () => {
+      const productPageSection = document.getElementById('productPageSection');
+      if (productPageSection) {
+        productPageSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    
     const updateNavListVisibility = (): void => {
       navList.classList.toggle('visible', NavListVisible && isMobileView);
       navList.classList.toggle('hidden', !NavListVisible || !isMobileView);
@@ -68,7 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-
+    searchInput.addEventListener('input', handleSearch);
+    searchIcon.addEventListener('click', () => {
+      handleSearch();
+      scrollToProductSection();
+    });
+    
+  
+    searchInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        handleSearch();
+        scrollToProductSection();
+      }
+    });
+    
     window.addEventListener('resize', handleResize);
     hamburgerIcon.addEventListener('click', toggleNavList);
     xIcon.addEventListener('click', toggleNavList);
