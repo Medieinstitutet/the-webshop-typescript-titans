@@ -3,8 +3,11 @@
 @use "mixins";
 
 .landingpage-wrapper {
+    position: relative;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
+    background-color: white;
+    z-index: 3;
 }
 nav {
     height: 116px;
@@ -214,18 +217,6 @@ h2 {
         margin-top: 395px;
     }
 }
-nav {
-    height: 7vh;
-    width: 100%;
-    background-color: v.$primary-color;
-    z-index: 1;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0;
-}
 
 .nav-line {
     height: 5px;
@@ -268,11 +259,4 @@ h2 {
     font-size: 33px;
     right: 12px;
     padding-top: 7px;
-}
-.main {
-    position: absolute;
-    height: 93vh;
-    width: 100%;
-    background-color: white;
-    z-index: 3;
 }
