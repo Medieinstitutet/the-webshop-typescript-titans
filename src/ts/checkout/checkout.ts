@@ -8,6 +8,7 @@ const goToPayment = document.getElementById('goToPayment') as HTMLElement;
 //klickbara ikoner
 navBagIcon.addEventListener('click', function() {
     checkout.style.display = 'flex';
+    console.log("clicked");
 });
 
 closeCartIcon.addEventListener('click', function() {
@@ -20,7 +21,7 @@ closeCartIcon.addEventListener('click', function() {
 
 goToPayment.addEventListener('click', function() {
    
-    window.location.href = 'order.html';
+    window.location.href = 'checkout.html';
 })
 
 
