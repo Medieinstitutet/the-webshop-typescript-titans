@@ -6,7 +6,7 @@
   border: none;
   cursor: pointer;
   top: 2%;
-  left: 0;
+  left: 90%;
   margin-left: 3%;
   transform: translateX(-50%);
   position: absolute;
@@ -58,17 +58,6 @@ ul {
     justify-content: space-between;
     margin-bottom: 10px;
   }
-}
-
-#closeCartIcon {
-  color: $secondary-color;
-  font-size: 30px;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  bottom: 70px;
-  left: 90%;
-  transform: translateX(-50%);
 }
 
 .free-shipping-section {
