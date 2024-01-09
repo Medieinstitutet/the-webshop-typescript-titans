@@ -1,25 +1,7 @@
 @use "navbar";
-@use "productPage";
+//@use "productPage";
 @use "landingpage";
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
 *,
 *::after,
 *::before {
