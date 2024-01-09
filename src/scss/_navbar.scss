@@ -92,7 +92,7 @@ nav {
     }
 }
 
-h2 {
+.name-logo {
     position: absolute;
     color: v.$text-light;
     float: left;
@@ -225,38 +225,4 @@ h2 {
     z-index: 10;
     position: absolute;
     float: left;
-}
-
-.nav-logo {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-h2 {
-    position: absolute;
-    color: v.$text-light;
-    float: left;
-    font-size: 24px;
-    left: 45px;
-    font-weight: 1000;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding-top: 5px;
-}
-
-#nav-bag-icon {
-    position: absolute;
-    color: white;
-    font-size: 26px;
-    right: 62px;
-}
-
-#nav-hamburger-icon {
-    position: absolute;
-    color: white;
-    font-size: 33px;
-    right: 12px;
-    padding-top: 7px;
 }
