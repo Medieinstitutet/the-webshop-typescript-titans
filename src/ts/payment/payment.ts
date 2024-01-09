@@ -1,3 +1,5 @@
+import "../../scss/style.scss";
+
 function validateForm() {
     // Hämta värdet från input-fältet med id "card-holder-name"
     let x = (document.getElementById("card-holder-name") as HTMLInputElement).value;
