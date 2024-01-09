@@ -1,15 +1,13 @@
-import { addRandomPrices } from "./addRandomPrices";
+// import { addRandomPrices } from "./addRandomPrices";
 
-export async function displayFilter() {
-  const filters = await addRandomPrices();
-  const filterContainer = document.getElementById("filterContainer");
+// export async function displayFilter() {
+//   const filters = await addRandomPrices();
+//   const filterContainer = document.getElementById("filterContainer");
 
-  for (let i = 0; i < 20; i++) {
-    const tags = filters[i];
-    const tag: HTMLButtonElement = document.createElement("button");
+//   for (let i = 0; i < 5; i++) {
+//     const genres = filters[i];
+//     const genre: HTMLButtonElement = document.createElement("button");
 
-    tag.textContent = tags.genres[0].name;
-
-    filterContainer?.appendChild(tag);
-  }
-}
+//     filterContainer?.appendChild(genre);
+//   }
+// }
