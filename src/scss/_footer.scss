@@ -1,0 +1,84 @@
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: v.$darkbackground-color;
+  color: v.$text-light;
+
+  @include mixins.tablet {
+    height: 50vh;
+  }
+
+  .footer--section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    height: 90%;
+    flex-wrap: wrap;
+    @include mixins.desktop {
+      flex-direction: row;
+    }
+
+    ul {
+      text-align: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      a {
+        text-decoration: none;
+        color: v.$text-light;
+
+        :hover {
+          text-decoration: underline;
+        }
+      }
+
+      .bi {
+        margin-right: 10px;
+      }
+
+      li {
+        margin: 10px;
+      }
+    }
+
+    &__top {
+      @include mixins.flexCenter;
+      flex-direction: column;
+      border-bottom: 1px solid v.$text-light;
+      width: 95%;
+      height: 40%;
+      @include mixins.desktop {
+        width: 45%;
+        border: none;
+      }
+    }
+
+    &__bottom {
+      @include mixins.flexCenter;
+      flex-direction: column;
+      width: 95%;
+      height: 40%;
+
+      @include mixins.desktop {
+        width: 45%;
+      }
+    }
+
+    &__copyright {
+      @include mixins.flexCenter;
+      padding-top: 30px;
+      margin-top: 20px;
+      border-top: 1px solid v.$text-light;
+      font-size: 0.8em;
+      width: 100%;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+}
