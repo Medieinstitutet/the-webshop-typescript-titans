@@ -41,8 +41,8 @@ export async function displayProducts(searchTerm: string = '') {
 
       Title.textContent = game.name;
       Price.textContent = `$${game.price}`;
-      Genre1.textContent = game.genres[0].name;
-      Genre2.textContent = game.genres[1].name;
+      Genre1.textContent = game.genres[0]?.name;
+      Genre2.textContent = game.genres[1]?.name;
       addToCartBtn.textContent = "Add To Cart";
 
       Price.classList.add("price-style");

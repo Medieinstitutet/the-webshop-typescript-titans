@@ -1,7 +1,6 @@
 import { displayProducts } from '../productPage/displayProducts';
 document.addEventListener("DOMContentLoaded", () => {
     
-   
     const navList = document.querySelector('.nav-list') as HTMLElement;
     const mobileSearchBarContainer = document.querySelector('.mobile-searchbar-container') as HTMLElement;
     const inputGroup = document.querySelector('.input-group') as HTMLElement;
