@@ -1,6 +1,6 @@
 import { addRandomPrices } from "./addRandomPrices";
 
-export async function displayProducts(searchTerm: string = '') {
+export async function displayProducts(searchTerm: string = "") {
   const productsContainer = document.getElementById("productsContainer");
 
   // Clear existing content
@@ -14,12 +14,10 @@ export async function displayProducts(searchTerm: string = '') {
 
     let gamesToDisplay;
 
-   
-    if (searchTerm.trim() === '') {
-      gamesToDisplay = gamesWithPrices; 
+    if (searchTerm.trim() === "") {
+      gamesToDisplay = gamesWithPrices;
     } else {
-      
-      gamesToDisplay = gamesWithPrices.filter(game =>
+      gamesToDisplay = gamesWithPrices.filter((game) =>
         game.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }

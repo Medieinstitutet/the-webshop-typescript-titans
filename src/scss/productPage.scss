@@ -38,7 +38,7 @@
     margin-bottom: 40px;
     width: 90%;
     border-radius: 5px;
-    background-color: v.$secondary-color;
+    background-color: v.$darkbackground-color;
     padding: 10px;
 
     @include mixins.desktop {
@@ -62,14 +62,15 @@
   &__products-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     gap: 20px;
     height: 90%;
     width: 90%;
     margin: 0 0 50px 0;
+    justify-content: center;
 
     @include mixins.desktop {
       width: 70%;
+      justify-content: flex-start;
     }
 
     .product-card {
@@ -77,7 +78,7 @@
       color: v.$text-light;
       width: 45%;
       box-shadow: 0px 5px 3px rgba($color: #101727, $alpha: 0.5);
-      background-color: v.$secondary-color;
+      background-color: v.$darkbackground-color;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
