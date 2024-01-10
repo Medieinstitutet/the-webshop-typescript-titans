@@ -1,6 +1,6 @@
 import "./../scss/style.scss";
 import "./navbar/navbar";
-
+import "./productPage/productPage";
 import "./payment/payment"
 
 
@@ -8,13 +8,13 @@ import "./payment/payment"
 import { displayProducts } from "./productPage/displayProducts";
 //import { updateHeroImages} from "./navbar/updateHeroImages";
 
-import "./productPage/productPage";
+
 
 displayProducts();
 // displayFilter();
 //updateHeroImages();
 
-import "./../scss/style.scss";
+
 
 
 
