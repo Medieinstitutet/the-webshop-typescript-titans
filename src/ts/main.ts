@@ -1,6 +1,6 @@
-
 import "./../scss/style.scss";
 import "./navbar/navbar";
+
 import "./payment/payment"
 
 
@@ -15,4 +15,6 @@ displayProducts();
 //updateHeroImages();
 
 import "./../scss/style.scss";
+
+
 
