@@ -2,7 +2,7 @@ import "./../scss/style.scss";
 import "./navbar/navbar";
 import "./productPage/productPage";
 import "./payment/payment";
-
+import "./checkout/checkout";
 
 
 // import { displayFilter } from "./productPage/displayFilter";
