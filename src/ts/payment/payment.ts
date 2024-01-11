@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
   ) as HTMLElement;
 
   if (goToCheckoutBtn) {
-    goToCheckoutBtn.addEventListener("click", function () {
+    goToCheckoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
       paymentSection.style.display = "none";
       confirmationOverlay.style.display = "flex";
     });
