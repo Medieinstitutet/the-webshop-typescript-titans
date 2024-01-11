@@ -30,7 +30,13 @@ export async function displayProducts(searchTerm: string = "") {
       const Price: HTMLParagraphElement = document.createElement("p");
       const addToCartBtn: HTMLButtonElement = document.createElement("button");
 
-      addToCartBtn.addEventListener("click", () => addToCart(game));
+      const cartProducts = document.getElementById(
+        "cartProducts"
+      ) as HTMLElement;
+      addToCartBtn.addEventListener("click", () => {
+        cartProducts.innerHTML = "";
+        addToCart(game);
+      });
 
       Title.textContent = game.name;
       Price.textContent = `$${game.price}`;
@@ -71,8 +77,6 @@ function addToCart(game: GamesWithPrice) {
   calculateTotal();
 }
 
-
-
 export function loadCart() {
   const cartJson = localStorage.getItem("cart");
   let cart: GamesWithPrice[] = cartJson ? JSON.parse(cartJson) : [];
@@ -84,6 +88,8 @@ export function loadCart() {
     const productPrice: HTMLElement = document.createElement("span");
     const cartTitle: HTMLElement = document.createElement("h3");
     const imageContainer: HTMLElement = document.createElement("div");
+    const addProducts: HTMLElement = document.createElement("button");
+    const removeProducts: HTMLElement = document.createElement("button");
 
     cartTitle.textContent = addedProduct.name;
     imageContainer.style.backgroundImage = `url(${addedProduct.background_image})`;
@@ -92,19 +98,36 @@ export function loadCart() {
     cartTitle.classList.add("cartTitle");
     productPrice.classList.add("productPrice");
     addedProducts.classList.add("productContainer");
+    addProducts.classList.add("addProductsBtn");
+    removeProducts.classList.add("removeProductsBtn");
 
     productPrice.textContent = `$${addedProduct.price}`;
     addedProducts.appendChild(cartTitle);
     addedProducts.appendChild(imageContainer);
     cartProducts.appendChild(addedProducts);
     addedProducts.appendChild(productPrice);
+    addedProducts.appendChild(removeProducts);
+    addedProducts.appendChild(addProducts);
+
+    addProducts.textContent = "+";
+    removeProducts.textContent = "-";
+
+    calculateTotal();
+    removeProducts.addEventListener("click", () => {
+      cartProducts.innerHTML = "";
+      cart.splice(i, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+      updateCartCount();
+      calculateTotal();
+    });
   }
 }
 
-
-
 function updateCartCount() {
-  const cart: GamesWithPrice[] = JSON.parse(localStorage.getItem("cart") || "[]");
+  const cart: GamesWithPrice[] = JSON.parse(
+    localStorage.getItem("cart") || "[]"
+  );
   const cartCount: number = cart.length;
 
   const cartCountElement = document.getElementById("cart-count") as HTMLElement;
@@ -113,18 +136,18 @@ function updateCartCount() {
   }
 }
 
-
 updateCartCount();
 
 function calculateTotal() {
-  const cart: GamesWithPrice[] = JSON.parse(localStorage.getItem("cart") || "[]");
+  const cart: GamesWithPrice[] = JSON.parse(
+    localStorage.getItem("cart") || "[]"
+  );
   let total = 0;
 
   for (let i = 0; i < cart.length; i++) {
     total += cart[i].price;
   }
 
- 
   const totalElement = document.getElementById("total-amount") as HTMLElement;
   if (totalElement) {
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
