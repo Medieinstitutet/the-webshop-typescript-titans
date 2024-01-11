@@ -1,15 +1,21 @@
-@import "variables";
+@use "variables" as v;
+@use "mixins";
 
 .productContainer {
-  display: row;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-
+  justify-content: center;
   overflow: hidden;
+  text-align: center;
+
+  @include mixins.desktop {
+    width: 20%;
+  }
 
   .productPrice {
     font-size: 13px;
-    color: $text-ultralight;
+    color: v.$text-ultralight;
     margin: 4%;
   }
 }
@@ -25,7 +31,7 @@
 
 .cartTitle {
   font-size: 13px;
-  color: $text-ultralight;
+  color: v.$text-ultralight;
   margin: 5%;
 }
 
@@ -59,7 +65,7 @@
     rgba(255, 255, 255, 0.9)
   );
   width: 70%;
-  height: 80%;
+  min-height: 80%;
   margin: 5% auto;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -73,6 +79,7 @@
 }
 
 #cartModal h2 {
+  width: 100%;
   text-align: center;
 }
 
@@ -80,47 +87,47 @@
   color: rgb(114, 244, 114);
   text-align: center;
   font-weight: 600;
-  margin-top: 395px;
+  width: 100%;
+  // margin-top: 395px;
   /*position: fixed;*/
 }
 
 .checkout-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: space-around;
   position: absolute;
 }
 
 #checkout-section {
-  height: 465px;
+  min-height: 465px;
   width: calc(50% - 20px);
   padding: 50px;
   border-radius: 10%;
-  color: $secondary-color;
+  color: v.$secondary-color;
   flex-grow: 1;
   right: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
 /*Knappen som går till betalningen */
 
-/*#goToPayment {
-  background-color: $primary-color;
-  color: $text-ultralight;
+#goToPayment {
+  background-color: v.$primary-color;
+  color: v.$text-ultralight;
   padding: 10px 15px;
   border: 1px solid white;
   border-radius: 4px;
   cursor: pointer;
-  position: absolute;
   transition: all 0.3s;
-  margin-top: 20%;
 }
 #goToPayment:hover {
   transform: scale(1.06);
-}*/
+}
 
 /* spel-Ikonen i varukorgen */
 .iconify {
@@ -128,7 +135,7 @@
 }
 
 #cart-count {
-  background: linear-gradient(to right, purple, $text-light);
+  background: linear-gradient(to right, purple, v.$text-light);
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
@@ -139,8 +146,17 @@
 }
 
 #cartProducts {
+  display: flex;
   align-items: center;
-  position: absolute;
-  width: 20%;
-  height: 100%;
+
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  min-height: 50%;
+
+  @include mixins.desktop {
+    flex-direction: row;
+    min-height: 70%;
+  }
 }
