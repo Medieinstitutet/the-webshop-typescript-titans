@@ -1,17 +1,32 @@
 @import "variables";
 
 .productContainer {
-  .productPrice {
-  }
+  display: row;
+  align-items: center;
+  justify-content: space-around;
 
-  .cartTitle {
+  overflow: hidden;
+
+  .productPrice {
+    font-size: 13px;
+    color: $text-ultralight;
+    margin: 4%;
   }
-  .imageContainer {
-    background-size: cover;
-    background-position: center;
-    width: 100px;
-    height: 100px;
-  }
+}
+.imageContainer {
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  width: 8em;
+  margin: 4%;
+}
+
+.cartTitle {
+  font-size: 13px;
+  color: $text-ultralight;
+  margin: 5%;
 }
 
 #closeCartIcon {
@@ -20,8 +35,8 @@
   border: none;
   cursor: pointer;
   top: 2%;
-  left: 90%;
-  margin-left: 3%;
+  left: 9%;
+  margin-left: 85%;
   transform: translateX(-50%);
   position: absolute;
 }
@@ -43,9 +58,9 @@
     rgba(22, 17, 55, 0.9),
     rgba(255, 255, 255, 0.9)
   );
-  max-width: 55%;
-  margin: 8% auto;
-  padding: 100px;
+  width: 70%;
+  height: 80%;
+  margin: 5% auto;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -91,7 +106,8 @@
 }
 
 /*Knappen som går till betalningen */
-#goToPayment {
+
+/*#goToPayment {
   background-color: $primary-color;
   color: $text-ultralight;
   padding: 10px 15px;
@@ -104,7 +120,7 @@
 }
 #goToPayment:hover {
   transform: scale(1.06);
-}
+}*/
 
 /* spel-Ikonen i varukorgen */
 .iconify {
@@ -123,9 +139,8 @@
 }
 
 #cartProducts {
+  align-items: center;
   position: absolute;
-  width: 90%;
-  height: 70%;
-  background-color: $primary-color;
-  border-radius: 5%;
+  width: 20%;
+  height: 100%;
 }
