@@ -2,22 +2,7 @@ import { addRandomPrices, GamesWithPrice } from "./addRandomPrices";
 
 export async function displayProducts(searchTerm: string = "") {
   const productsContainer = document.getElementById("productsContainer");
-  loadCart();
-  
-  function addToCart(game: GamesWithPrice) {
-    
-    let cart: GamesWithPrice[] = JSON.parse(localStorage.getItem('cart') || '[]');
 
-    cart.push(game);
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-  }
-  function loadCart() {
-   
-    const cartJson = localStorage.getItem('cart');
-    let cart: GamesWithPrice[] = cartJson ? JSON.parse(cartJson) : [];
-  
-  }
   // Clear existing content
   productsContainer!.innerHTML = "";
 
@@ -34,7 +19,6 @@ export async function displayProducts(searchTerm: string = "") {
       );
     }
 
-  
     for (let i = 0; i < gamesToDisplay.length; i++) {
       const game = gamesToDisplay[i];
 
@@ -46,10 +30,7 @@ export async function displayProducts(searchTerm: string = "") {
       const Price: HTMLParagraphElement = document.createElement("p");
       const addToCartBtn: HTMLButtonElement = document.createElement("button");
 
-    
-      
-      addToCartBtn.addEventListener('click', () => addToCart(game));
-
+      addToCartBtn.addEventListener("click", () => addToCart(game));
 
       Title.textContent = game.name;
       Price.textContent = `$${game.price}`;
@@ -79,3 +60,28 @@ export async function displayProducts(searchTerm: string = "") {
 }
 
 displayProducts();
+
+function addToCart(game: GamesWithPrice) {
+  let cart: GamesWithPrice[] = JSON.parse(localStorage.getItem("cart") || "[]");
+
+  cart.push(game);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(cart);
+}
+
+export function loadCart() {
+  const cartJson = localStorage.getItem("cart");
+  let cart: GamesWithPrice[] = cartJson ? JSON.parse(cartJson) : [];
+
+  for (let i = 0; i < cart.length; i++) {
+    const addedProduct = cart[i];
+    const cartProducts = document.getElementById("cartProducts") as HTMLElement;
+    const addedProducts: HTMLElement = document.createElement("div");
+    const productPrice: HTMLElement = document.createElement("span");
+
+    addedProducts.innerHTML = "hejhej";
+    productPrice.textContent = `$${addedProduct.price}`;
+    cartProducts.appendChild(addedProducts);
+    addedProducts.appendChild(productPrice);
+  }
+}
