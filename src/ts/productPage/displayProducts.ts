@@ -68,6 +68,7 @@ function addToCart(game: GamesWithPrice) {
   localStorage.setItem("cart", JSON.stringify(cart));
   console.log(cart);
   updateCartCount();
+  calculateTotal();
 }
 
 
@@ -114,3 +115,20 @@ function updateCartCount() {
 
 
 updateCartCount();
+
+function calculateTotal() {
+  const cart: GamesWithPrice[] = JSON.parse(localStorage.getItem("cart") || "[]");
+  let total = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    total += cart[i].price;
+  }
+
+ 
+  const totalElement = document.getElementById("total-amount") as HTMLElement;
+  if (totalElement) {
+    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+  }
+
+  return total;
+}

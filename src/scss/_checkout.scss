@@ -112,6 +112,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 /*Knappen som går till betalningen */
@@ -148,15 +149,22 @@
 #cartProducts {
   display: flex;
   align-items: center;
-
+  justify-content: center;
+  color: black;
   flex-direction: column;
   flex-wrap: wrap;
   position: relative;
   width: 100%;
   min-height: 50%;
-
   @include mixins.desktop {
     flex-direction: row;
     min-height: 70%;
   }
+}
+
+#total-amount {
+  color: black;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
 }
