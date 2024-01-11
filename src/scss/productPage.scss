@@ -16,7 +16,7 @@
   }
 
   .text-container {
-    width: 90%;
+    width: 85%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -112,6 +112,11 @@
       }
       .addToCartBtn:hover {
         background-color: #274bae;
+      }
+      .genreContainer {
+        display: flex;
+        gap: 5px;
+        margin: 5px;
       }
 
       .price-style {

@@ -25,6 +25,7 @@ export async function displayProducts(searchTerm: string = "") {
       const productCard: HTMLDivElement = document.createElement("div");
       const productTop: HTMLDivElement = document.createElement("div");
       const Title: HTMLHeadingElement = document.createElement("h3");
+      const genreContainer: HTMLElement = document.createElement("div");
       const Genre1: HTMLSpanElement = document.createElement("span");
       const Genre2: HTMLSpanElement = document.createElement("span");
       const Price: HTMLParagraphElement = document.createElement("p");
@@ -43,6 +44,7 @@ export async function displayProducts(searchTerm: string = "") {
       Genre1.textContent = game.genres[0]?.name;
       Genre2.textContent = game.genres[1]?.name;
       addToCartBtn.textContent = "Add To Cart";
+      genreContainer.classList.add("genreContainer");
 
       Price.classList.add("price-style");
       productCard.classList.add("product-card");
@@ -52,8 +54,9 @@ export async function displayProducts(searchTerm: string = "") {
 
       productCard.appendChild(productTop);
       productCard.appendChild(Title);
-      productCard.appendChild(Genre1);
-      productCard.appendChild(Genre2);
+      productCard.appendChild(genreContainer);
+      genreContainer.appendChild(Genre1);
+      genreContainer.appendChild(Genre2);
       productCard.appendChild(Price);
       productCard.appendChild(addToCartBtn);
       productsContainer?.appendChild(productCard);
