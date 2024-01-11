@@ -45,25 +45,14 @@
 
 #cartModal h2 {
   text-align: center;
-  margin-top: -60%;
-  position: absolute;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-
-  li {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
 }
 
 .free-shipping-section {
   color: rgb(114, 244, 114);
   text-align: center;
   font-weight: 600;
+  margin-top: 395px;
+  /*position: fixed;*/
 }
 
 .checkout-container {
@@ -117,4 +106,12 @@ ul {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+#cartProducts {
+  position: absolute;
+  width: 90%;
+  height: 70%;
+  background-color: $primary-color;
+  border-radius: 5%;
 }

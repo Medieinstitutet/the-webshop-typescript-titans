@@ -15,8 +15,7 @@ closeCartIcon.addEventListener('click', function() {
 });
 
 
-//Funktion som gör att man skickat vidare till betalningen men just nu går det till orderbekräftelse sidan, 
-// även denna funktion behövs i payment branchen
+// gör så att man skickas vidare till betalningen
 
 goToPayment.addEventListener('click', function() {
    
