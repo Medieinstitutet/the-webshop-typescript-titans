@@ -86,19 +86,22 @@
             width: 500px;
         }
         .textcard2-shapedtext {
-            position: absolute;
-            width: 73%;
-            height: 100px;
-            display: block;
-            font-family: "Rubik Mono One", monospace;
-            color: v.$text-dark;
-            font-size: 24px;
-            bottom: 30px;
-            left: 20px;
-            &:hover {
-                cursor: pointer;
+            #productpage-linktext {
+                list-style: none;
+                position: absolute;
+                width: 73%;
+                height: 100px;
+                display: block;
+                font-family: "Rubik Mono One", monospace;
                 color: v.$text-dark;
-                text-decoration: underline v.$text-light solid 2px;
+                font-size: 24px;
+                bottom: 30px;
+                left: 20px;
+                &:hover {
+                    cursor: pointer;
+                    color: v.$text-dark;
+                    text-decoration: underline v.$text-light solid 2px;
+                }
             }
 
             @include mixins.desktop {

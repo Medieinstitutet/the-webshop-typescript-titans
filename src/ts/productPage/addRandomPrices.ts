@@ -1,7 +1,7 @@
 import { getAllGames } from './gameApi';
 import { Games } from '../../models/Games'
 
-interface GamesWithPrice extends Games {
+export interface GamesWithPrice extends Games {
     price: number;
   }//Förlänger interfacet med ny egenskap och nytt namn så att pris går att lägga till i varje objekt
   
@@ -24,8 +24,9 @@ interface GamesWithPrice extends Games {
       
   
       localStorage.setItem('gamesWithPrices', JSON.stringify(gamesWithPrice));
-  
+      
       return gamesWithPrice;
+      
       //Spel med pris läggs in i localstorage och funktionen returnerar spel med priser
 
     } catch (error) {

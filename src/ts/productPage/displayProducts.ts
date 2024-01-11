@@ -1,13 +1,25 @@
-import { addRandomPrices } from "./addRandomPrices";
+import { addRandomPrices, GamesWithPrice } from "./addRandomPrices";
 
 export async function displayProducts(searchTerm: string = "") {
   const productsContainer = document.getElementById("productsContainer");
+  loadCart();
+  
+  function addToCart(game: GamesWithPrice) {
+    
+    let cart: GamesWithPrice[] = JSON.parse(localStorage.getItem('cart') || '[]');
 
+    cart.push(game);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+  }
+  function loadCart() {
+   
+    const cartJson = localStorage.getItem('cart');
+    let cart: GamesWithPrice[] = cartJson ? JSON.parse(cartJson) : [];
+  
+  }
   // Clear existing content
   productsContainer!.innerHTML = "";
-
-  let testArray;
-  [] = [];
 
   try {
     const gamesWithPrices = await addRandomPrices();
@@ -22,6 +34,7 @@ export async function displayProducts(searchTerm: string = "") {
       );
     }
 
+  
     for (let i = 0; i < gamesToDisplay.length; i++) {
       const game = gamesToDisplay[i];
 
@@ -33,14 +46,15 @@ export async function displayProducts(searchTerm: string = "") {
       const Price: HTMLParagraphElement = document.createElement("p");
       const addToCartBtn: HTMLButtonElement = document.createElement("button");
 
-      addToCartBtn.addEventListener("click", (game) => {
-        testArray.push(game);
-      });
+    
+      
+      addToCartBtn.addEventListener('click', () => addToCart(game));
+
 
       Title.textContent = game.name;
       Price.textContent = `$${game.price}`;
-      Genre1.textContent = game.genres[0].name;
-      Genre2.textContent = game.genres[1].name;
+      Genre1.textContent = game.genres[0]?.name;
+      Genre2.textContent = game.genres[1]?.name;
       addToCartBtn.textContent = "Add To Cart";
 
       Price.classList.add("price-style");
