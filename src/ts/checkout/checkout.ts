@@ -24,3 +24,25 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "checkout.html";
   });
 });
+
+interface GamesWithPrice {
+ 
+  name: string;
+  price: number;
+ 
+}
+
+function updateCartCount(){
+  const cart: GamesWithPrice[] = JSON.parse(localStorage.getItem("cart") || "[]");
+  const cartCount: number = cart.length;
+  
+
+  const cartCountElement = document.getElementById("cart-count") as HTMLElement;
+  if (cartCountElement) {
+    cartCountElement.textContent = cartCount.toString();
+    updateCartCount();
+  }
+}
+
+updateCartCount();
+

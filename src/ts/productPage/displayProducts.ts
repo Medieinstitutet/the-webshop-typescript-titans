@@ -67,7 +67,10 @@ function addToCart(game: GamesWithPrice) {
   cart.push(game);
   localStorage.setItem("cart", JSON.stringify(cart));
   console.log(cart);
+  updateCartCount();
 }
+
+
 
 export function loadCart() {
   const cartJson = localStorage.getItem("cart");
@@ -96,3 +99,18 @@ export function loadCart() {
     addedProducts.appendChild(productPrice);
   }
 }
+
+
+
+function updateCartCount() {
+  const cart: GamesWithPrice[] = JSON.parse(localStorage.getItem("cart") || "[]");
+  const cartCount: number = cart.length;
+
+  const cartCountElement = document.getElementById("cart-count") as HTMLElement;
+  if (cartCountElement) {
+    cartCountElement.textContent = cartCount.toString();
+  }
+}
+
+
+updateCartCount();
