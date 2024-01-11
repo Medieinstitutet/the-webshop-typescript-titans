@@ -78,9 +78,20 @@ export function loadCart() {
     const cartProducts = document.getElementById("cartProducts") as HTMLElement;
     const addedProducts: HTMLElement = document.createElement("div");
     const productPrice: HTMLElement = document.createElement("span");
+    const cartTitle: HTMLElement = document.createElement("h3");
+    const imageContainer: HTMLElement = document.createElement("div");
 
-    addedProducts.innerHTML = "hejhej";
+    cartTitle.textContent = addedProduct.name;
+    imageContainer.style.backgroundImage = `url(${addedProduct.background_image})`;
+
+    imageContainer.classList.add("imageContainer");
+    cartTitle.classList.add("cartTitle");
+    productPrice.classList.add("productPrice");
+    addedProducts.classList.add("productContainer");
+
     productPrice.textContent = `$${addedProduct.price}`;
+    addedProducts.appendChild(cartTitle);
+    addedProducts.appendChild(imageContainer);
     cartProducts.appendChild(addedProducts);
     addedProducts.appendChild(productPrice);
   }

@@ -1,5 +1,19 @@
 @import "variables";
 
+.productContainer {
+  .productPrice {
+  }
+
+  .cartTitle {
+  }
+  .imageContainer {
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+  }
+}
+
 #closeCartIcon {
   color: black;
   font-size: 30px;
