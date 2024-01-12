@@ -65,7 +65,7 @@
   transform: scale(1.01);
 }
 .shipping-section h2 {
-    color: #fff;
+  color: #fff;
 }
 .shipping-section form {
   display: grid;
@@ -144,6 +144,9 @@
   border-radius: 15px;
   margin: 20px;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   @media screen and (min-width: $tablet) {
     width: 80%;
     grid-row: 1 /2;
@@ -159,8 +162,9 @@
   box-shadow: 0px 0px 40px 5px rgba(142, 68, 200, 0.9);
   transform: scale(1.01);
 }
-.shopping-basket h2{
-    color: #fff;
+.shopping-basket h2 {
+  color: #fff;
+  position: relative;
 }
 .container {
   display: grid;
@@ -207,4 +211,44 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.image-container1 {
+  background-position: center;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.product-container1 {
+  display: flex;
+  color: white;
+  gap: 10px;
+
+  .add-products-btn {
+    background-color: #0056b3;
+    margin: 0;
+  }
+  .add-products-btn:hover {
+    background-color: #261d5f;
+    margin: 0;
+  }
+  .remove-products-btn {
+    background-color: #0056b3;
+    margin: 0;
+  }
+  .remove-products-btn:hover {
+    background-color: #261d5f;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+  h3 {
+    margin: 0;
+  }
+}
+
+.total-amount1 {
+  color: white;
 }
