@@ -105,6 +105,7 @@ export function loadCart() {
     const removeProducts: HTMLElement = document.createElement("button");
     const quantity: HTMLElement = document.createElement("span");
 
+    
     cartTitle.textContent = addedProduct.product.name;
     imageContainer.style.backgroundImage = `url(${addedProduct.product.background_image})`;
     quantity.innerHTML = `${addedProduct.quantity}`;
@@ -164,6 +165,8 @@ function updateCartCount() {
     cartCountElement.textContent = cartCount.toString();
   }
 }
+
+
 
 updateCartCount();
 
