@@ -34,12 +34,13 @@
   }
 
   &__filter-container {
-    height: 100px;
+    min-height: 100px;
     margin-bottom: 40px;
     width: 90%;
     border-radius: 5px;
     background-color: v.$darkbackground-color;
     padding: 10px;
+    gap: 10px;
 
     @include mixins.desktop {
       width: 20%;
@@ -49,6 +50,7 @@
     }
 
     .filter-button {
+      margin: 0;
       border: none;
       font-size: 1em;
       color: v.$text-ultralight;
