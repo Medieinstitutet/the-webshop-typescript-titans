@@ -36,10 +36,6 @@ export async function displayProducts(searchTerm: string = "") {
       const cartProducts = document.getElementById(
         "cartProducts"
       ) as HTMLElement;
-      addToCartBtn.addEventListener("click", () => {
-        cartProducts.innerHTML = "";
-        addToCart(game);
-      });
 
       Title.textContent = game.name;
       Price.textContent = `$${game.price}`;
@@ -63,7 +59,12 @@ export async function displayProducts(searchTerm: string = "") {
       productCard.appendChild(addToCartBtn);
       productsContainer?.appendChild(productCard);
 
-      console.log(game);
+      addToCartBtn.addEventListener("click", () => {
+        cartProducts.innerHTML = "";
+        addToCart(game);
+      });
+
+      // console.log(game);
     }
   } catch (error) {
     console.error("Failed to display products:", error);
@@ -74,12 +75,19 @@ displayProducts();
 
 function addToCart(game: Games) {
   let cart: IGameProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
+  const index = cart.findIndex((cartItem) => cartItem.product.id === game.id);
 
-  cart.push({ product: game, quantity: 1 });
+  if (index >= 0) {
+    cart[index].quantity++;
+  } else {
+    cart.push({ product: game, quantity: 1 });
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
+    calculateTotal();
+  }
   localStorage.setItem("cart", JSON.stringify(cart));
-  console.log(cart);
-  updateCartCount();
-  calculateTotal();
+  loadCart();
 }
 
 export function loadCart() {
@@ -121,6 +129,16 @@ export function loadCart() {
     removeProducts.textContent = "-";
 
     calculateTotal();
+
+    addProducts.addEventListener("click", () => {
+      cartProducts.innerHTML = "";
+      cart[i].quantity++;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+      updateCartCount();
+      calculateTotal();
+    });
+
     removeProducts.addEventListener("click", () => {
       cartProducts.innerHTML = "";
       cart.splice(i, 1);
