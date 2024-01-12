@@ -63,8 +63,6 @@ export async function displayProducts(searchTerm: string = "") {
         cartProducts.innerHTML = "";
         addToCart(game);
       });
-
-      // console.log(game);
     }
   } catch (error) {
     console.error("Failed to display products:", error);
@@ -78,7 +76,11 @@ function addToCart(game: Games) {
   const index = cart.findIndex((cartItem) => cartItem.product.id === game.id);
 
   if (index >= 0) {
+    const cartProducts = document.getElementById("cartProducts") as HTMLElement;
+
+    cartProducts.innerHTML = "";
     cart[index].quantity++;
+    loadCart();
   } else {
     cart.push({ product: game, quantity: 1 });
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -86,8 +88,6 @@ function addToCart(game: Games) {
     updateCartCount();
     calculateTotal();
   }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  loadCart();
 }
 
 export function loadCart() {
@@ -141,7 +141,12 @@ export function loadCart() {
 
     removeProducts.addEventListener("click", () => {
       cartProducts.innerHTML = "";
-      cart.splice(i, 1);
+
+      if (cart[i].quantity == 1) {
+        cart.splice(i, 1);
+      } else {
+        cart[i].quantity--;
+      }
       localStorage.setItem("cart", JSON.stringify(cart));
       loadCart();
       updateCartCount();
@@ -167,7 +172,7 @@ function calculateTotal() {
   let total = 0;
 
   for (let i = 0; i < cart.length; i++) {
-    total += cart[i].product.price;
+    total += cart[i].product.price * cart[i].quantity;
   }
 
   const totalElement = document.getElementById("total-amount") as HTMLElement;

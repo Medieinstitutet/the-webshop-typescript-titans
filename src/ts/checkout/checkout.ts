@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //klickbara ikoner
   navBagIcon.addEventListener("click", function () {
+    const cartProducts = document.getElementById("cartProducts") as HTMLElement;
+    cartProducts.innerHTML = "";
     checkout.style.display = "flex";
     loadCart();
   });
