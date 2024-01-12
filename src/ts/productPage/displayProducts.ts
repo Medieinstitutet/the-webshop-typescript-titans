@@ -2,7 +2,9 @@ import { Games } from "../../models/Games";
 import { IGameProduct } from "../../models/IGameProduct";
 import { addRandomPrices } from "./addRandomPrices";
 
-export async function displayProducts(searchTerm: string = "") {
+
+
+export async function displayProducts(searchTerm: string = "", genre: string = "") {
   const productsContainer = document.getElementById("productsContainer");
 
   // Clear existing content
@@ -19,6 +21,14 @@ export async function displayProducts(searchTerm: string = "") {
       gamesToDisplay = Games.filter((game) =>
         game.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
+    }
+    if (genre.trim() !== "") {
+      const genreLowerCase = genre.toLowerCase();
+      gamesToDisplay = gamesToDisplay.filter((game: Games) => {
+       
+        return (game.genres[0] && game.genres[0].name.toLowerCase() === genreLowerCase) ||
+               (game.genres[1] && game.genres[1].name.toLowerCase() === genreLowerCase);
+      });
     }
 
     for (let i = 0; i < gamesToDisplay.length; i++) {
@@ -182,3 +192,25 @@ export function calculateTotal() {
 
   return total;
 }
+
+
+const navbarLinks: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.nav-list a');
+navbarLinks.forEach((link) => {
+  link.addEventListener('click', (event: Event) => {
+    event.preventDefault();
+    const genre: string = link.textContent?.trim() || "";
+    const productPageSection = document.getElementById('productPageSection');
+    if (productPageSection) {
+      productPageSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    displayProducts("", genre);
+  });
+});
+
+const filterButtons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.filter-button');
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const genre: string = button.textContent?.trim() ?? "";
+    displayProducts("", genre === 'All' ? "" : genre);
+  });
+});
