@@ -25,17 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-interface GamesWithPrice {
- 
+interface Games {
   name: string;
   price: number;
- 
 }
 
-function updateCartCount(){
-  const cart: GamesWithPrice[] = JSON.parse(localStorage.getItem("cart") || "[]");
+function updateCartCount() {
+  const cart: Games[] = JSON.parse(localStorage.getItem("cart") || "[]");
   const cartCount: number = cart.length;
-  
 
   const cartCountElement = document.getElementById("cart-count") as HTMLElement;
   if (cartCountElement) {
@@ -45,4 +42,3 @@ function updateCartCount(){
 }
 
 updateCartCount();
-

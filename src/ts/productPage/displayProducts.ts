@@ -1,4 +1,6 @@
-import { addRandomPrices, GamesWithPrice } from "./addRandomPrices";
+import { Games } from "../../models/Games";
+import { IGameProduct } from "../../models/IGameProduct";
+import { addRandomPrices } from "./addRandomPrices";
 
 export async function displayProducts(searchTerm: string = "") {
   const productsContainer = document.getElementById("productsContainer");
@@ -7,14 +9,14 @@ export async function displayProducts(searchTerm: string = "") {
   productsContainer!.innerHTML = "";
 
   try {
-    const gamesWithPrices = await addRandomPrices();
+    const Games = await addRandomPrices();
 
     let gamesToDisplay;
 
     if (searchTerm.trim() === "") {
-      gamesToDisplay = gamesWithPrices;
+      gamesToDisplay = Games;
     } else {
-      gamesToDisplay = gamesWithPrices.filter((game) =>
+      gamesToDisplay = Games.filter((game) =>
         game.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
@@ -70,10 +72,10 @@ export async function displayProducts(searchTerm: string = "") {
 
 displayProducts();
 
-function addToCart(game: GamesWithPrice) {
-  let cart: GamesWithPrice[] = JSON.parse(localStorage.getItem("cart") || "[]");
+function addToCart(game: Games) {
+  let cart: IGameProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
 
-  cart.push(game);
+  cart.push({ product: game, quantity: 1 });
   localStorage.setItem("cart", JSON.stringify(cart));
   console.log(cart);
   updateCartCount();
@@ -82,7 +84,7 @@ function addToCart(game: GamesWithPrice) {
 
 export function loadCart() {
   const cartJson = localStorage.getItem("cart");
-  let cart: GamesWithPrice[] = cartJson ? JSON.parse(cartJson) : [];
+  let cart: IGameProduct[] = cartJson ? JSON.parse(cartJson) : [];
 
   for (let i = 0; i < cart.length; i++) {
     const addedProduct = cart[i];
@@ -93,9 +95,11 @@ export function loadCart() {
     const imageContainer: HTMLElement = document.createElement("div");
     const addProducts: HTMLElement = document.createElement("button");
     const removeProducts: HTMLElement = document.createElement("button");
+    const quantity: HTMLElement = document.createElement("span");
 
-    cartTitle.textContent = addedProduct.name;
-    imageContainer.style.backgroundImage = `url(${addedProduct.background_image})`;
+    cartTitle.textContent = addedProduct.product.name;
+    imageContainer.style.backgroundImage = `url(${addedProduct.product.background_image})`;
+    quantity.innerHTML = `${addedProduct.quantity}`;
 
     imageContainer.classList.add("imageContainer");
     cartTitle.classList.add("cartTitle");
@@ -104,13 +108,14 @@ export function loadCart() {
     addProducts.classList.add("addProductsBtn");
     removeProducts.classList.add("removeProductsBtn");
 
-    productPrice.textContent = `$${addedProduct.price}`;
+    productPrice.textContent = `$${addedProduct.product.price}`;
     addedProducts.appendChild(cartTitle);
     addedProducts.appendChild(imageContainer);
     cartProducts.appendChild(addedProducts);
     addedProducts.appendChild(productPrice);
     addedProducts.appendChild(removeProducts);
     addedProducts.appendChild(addProducts);
+    addedProducts.appendChild(quantity);
 
     addProducts.textContent = "+";
     removeProducts.textContent = "-";
@@ -128,9 +133,7 @@ export function loadCart() {
 }
 
 function updateCartCount() {
-  const cart: GamesWithPrice[] = JSON.parse(
-    localStorage.getItem("cart") || "[]"
-  );
+  const cart: Games[] = JSON.parse(localStorage.getItem("cart") || "[]");
   const cartCount: number = cart.length;
 
   const cartCountElement = document.getElementById("cart-count") as HTMLElement;
@@ -142,13 +145,11 @@ function updateCartCount() {
 updateCartCount();
 
 function calculateTotal() {
-  const cart: GamesWithPrice[] = JSON.parse(
-    localStorage.getItem("cart") || "[]"
-  );
+  const cart: IGameProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
   let total = 0;
 
   for (let i = 0; i < cart.length; i++) {
-    total += cart[i].price;
+    total += cart[i].product.price;
   }
 
   const totalElement = document.getElementById("total-amount") as HTMLElement;
