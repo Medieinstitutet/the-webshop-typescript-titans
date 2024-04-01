@@ -3,11 +3,169 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
     <title>Sell it or buy it?</title>
   </head>
   <body>
+    <div class="landingpage-wrapper">
+      <nav>
+        <image
+          class="nav-logo"
+          src="src/assets/stair-group.svg"
+        alt="tv-spel.se logo"
+      ></image>
+      <h2 class="name-logo">TV-SPEL.SE</h2>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Sök efter spel"
+          aria-label="Sök efter spel"
+          aria-describedby="button-addon2"
+          id="searchInput"
+        />
+        <i id="nav-search-icon" class="bi bi-search"></i>
+      </div>
+      <i id="nav-bag-icon" class="bi bi-bag">
+        <span id="cart-count">0</span>
+      </i>
+     
+      <i id="nav-hamburger-icon" class="bi bi-list"></i>
+      <i id="nav-x-icon" class="bi bi-x-lg"></i>
+    </nav>
+
+    <div class="nav-line"></div>
+
+    <div class="nav-list">
+      <ul>
+        <li><a href="#productPageSection">Action</a></li>
+        <li><a href="#productPageSection">Adventure</a></li>
+        <li><a href="#productPageSection">Shooter</a></li>
+        <li><a href="#productPageSection">Puzzle</a></li>
+        <li><a href="#productPageSection">Indie</a></li>
+        <li><a href="#productPageSection">RPG</a></li>
+      </ul>
+    </div>
+    <div class="mobile-searchbar-container"></div>
+    <div class="landingpage-container">
+      <div class="landingpage-heroimage">
+        <div class="landingpage-textcard1">
+          <div class="textcard1-shapedtext">ALLTID BRA PRISER.</div>
+        </div>
+      </div>
+      <div class="landingpage-heroimage2">
+        <div class="landingpage-textcard2">
+          <div class="textcard2-shapedtext">
+            <a id="productpage-linktext" href="#productPageSection">DE NYASTE SPELEN HITTAR DU HäR.</a>
+          </div>
+        </div>
+      </div>
+      <a id="productpage-linkarrow" href="#productPageSection">
+      <i
+        id="landingpage-container-arrow"
+        class="bi bi-arrow-down-circle-fill"
+      ></i>
+    </a>
+    </div>
+    <div class="landingpage-line"></div>
+    <div class="nav-line"></div>
+</div>  
     <div id="app"></div>
+    <section class="product--page" id="productPageSection">
+      <div class="text-container">
+        <h2 class="games-title">Games</h2>
+        <p>
+          Welcome to the ultimate gaming destination! 
+          Explore a diverse lineup of thrilling games that cater to every gamer's taste. 
+          From action-packed adventures to immersive simulations, our collection ensures non-stop excitement. 
+         
+        </p>
+      </div>
+      <article class="product--page__filter-container" id="filterContainer">
+        <button class="filter-button">All</button>
+        <button class="filter-button">Action</button>
+        <button class="filter-button">Adventure</button>
+        <button class="filter-button">Puzzle</button>
+        <button class="filter-button">Indie</button>
+        <button class="filter-button">Rpg</button>
+      </article>
+      <article
+        id="productsContainer"
+        class="product--page__products-container"
+      ></article>
+    </section>
+
+
+    <!--varukorgen-->
+    <div id="checkout">
+      <div id="cartModal" class="checkout-container">
+        <div id="checkout-section">
+          <h2>Shopping Cart <span class="iconify" data-icon="icon-park-outline:game-three" data-inline="false"></span>
+          </h2>
+          <span
+            id="closeCartIcon"
+            class="iconify"
+            data-icon="mdi:close"
+            data-inline="false"
+       
+          ></span>  
+         
+          <div id="cartProducts">
+            
+          </div> 
+          <div class="totalPrice"> Total Price: <span id="total-amount">0</span></div>   
+          
+          <button id="goToPayment">Continue to Payment</button>
+    
+           <section class="free-shipping-section">
+            <p><i class="bi bi-truck"></i> Free Shipping Available!</p>
+          </section>
+        </div>
+                 
+      </div>
+      </div>
+    </div>
+    <footer>
+      <section class="footer--section">
+        <article class="footer--section__top">
+          <h2>Popular products</h2>
+          <ul>
+            <a href=""><li>PC</li></a>
+            <a href=""><li>Playstation</li></a>
+            <a href=""><li>Xbox</li></a>
+          </ul>
+        </article>
+        <article class="footer--section__bottom">
+          <h2>Contact us</h2>
+          <ul class="socials-list">
+            <a href=""
+              ><li><i class="bi bi-instagram"></i>Instagram</li></a
+            >
+            <a href=""
+              ><li><i class="bi bi-linkedin"></i>Linkedin</li></a
+            >
+            <a href="">
+              <li><i class="bi bi-facebook"></i>Facebook</li></a
+            >
+            <a href="">
+              <li><i class="bi bi-twitter-x"></i>X</li></a
+            >
+          </ul>
+        </article>
+        <article class="footer--section__copyright">
+          <i class="bi bi-c-circle"></i><span>All rights reserved 2024</span>
+        </article>
+      </section>
+    </footer>
+
     <script type="module" src="/src/ts/main.ts"></script>
+   
   </body>
 </html>
