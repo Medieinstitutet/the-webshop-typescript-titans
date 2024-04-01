@@ -165,12 +165,11 @@ export function loadCart() {
 }
 
 function updateCartCount() {
-  const cart: Games[] = JSON.parse(localStorage.getItem("cart") || "[]");
-  const cartCount: number = cart.length;
-
+  const cart: IGameProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
+  const totalQuantity: number = cart.reduce((sum, item) => sum + item.quantity, 0);
   const cartCountElement = document.getElementById("cart-count") as HTMLElement;
   if (cartCountElement) {
-    cartCountElement.textContent = cartCount.toString();
+    cartCountElement.textContent = totalQuantity.toString();
   }
 }
 
