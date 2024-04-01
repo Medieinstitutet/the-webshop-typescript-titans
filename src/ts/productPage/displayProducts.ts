@@ -7,7 +7,6 @@ import { addRandomPrices } from "./addRandomPrices";
 export async function displayProducts(searchTerm: string = "", genre: string = "") {
   const productsContainer = document.getElementById("productsContainer");
 
-  // Clear existing content
   productsContainer!.innerHTML = "";
 
   try {

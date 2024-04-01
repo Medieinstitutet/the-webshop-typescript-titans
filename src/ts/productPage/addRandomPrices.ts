@@ -1,9 +1,6 @@
 import { getAllGames } from "./gameApi";
 import { Games } from "../../models/Games";
 
-// export interface Games extends Games {
-//   price: number;
-// } //Förlänger interfacet med ny egenskap och nytt namn så att pris går att lägga till i varje objekt
 
 export async function addRandomPrices(): Promise<Games[]> {
   //Om det finns spel från tidigare session så skickar functionen dessa
@@ -25,8 +22,8 @@ export async function addRandomPrices(): Promise<Games[]> {
     localStorage.setItem("Games", JSON.stringify(Games));
 
     return Games;
-
     //Spel med pris läggs in i localstorage och funktionen returnerar spel med priser
+ 
   } catch (error) {
     console.error("Error adding prices to games:", error);
     throw error;
